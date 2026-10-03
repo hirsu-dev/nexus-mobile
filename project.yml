@@ -20,6 +20,7 @@ targets:
         CFBundleVersion: "1"
         NSCameraUsageDescription: "NEXUS uses the camera for image analysis when you choose it."
         NSMicrophoneUsageDescription: "NEXUS uses the microphone for voice commands when you choose it."
+        NSLocalNetworkUsageDescription: "NEXUS connects to your PC, Pi-hole, Jellyfin, and other services on your network."
         NSAppTransportSecurity:
           NSAllowsLocalNetworking: true
         UILaunchScreen: {}

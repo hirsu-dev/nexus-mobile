@@ -8,7 +8,11 @@ targets:
     type: application
     platform: iOS
     sources:
-      - path: NexusMobile
+      - path: .
+        excludes:
+          - README.md
+          - codemagic.yaml
+          - .github
     info:
       path: Info.plist
       properties:
@@ -17,8 +21,9 @@ targets:
         CFBundleVersion: "1"
         NSCameraUsageDescription: "NEXUS uses the camera for image analysis when you choose it."
         NSMicrophoneUsageDescription: "NEXUS uses the microphone for voice commands when you choose it."
-        UILaunchScreen:
-          UIColorName: LaunchBackground
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+        UILaunchScreen: {}
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.hrushi.nexusmobile

@@ -41,5 +41,15 @@ import Combine
         _ = try? await URLSession.shared.data(for: request)
     }
 
-    private func ping(_ raw: String) async -> Bool { guard let url = URL(string: raw) else { return false }; do { let (_, response) = try await URLSession.shared.data(from: url); return (response as? HTTPURLResponse)?.statusCode ?? 0 < 500 } catch { return false } }
+    private func ping(_ raw: String) async -> Bool {
+        guard let url = URL(string: raw) else { return false }
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 6
+        do {
+            let (_, response) = try await URLSession.shared.data(for: request)
+            return (response as? HTTPURLResponse)?.statusCode ?? 0 < 500
+        } catch {
+            return false
+        }
+    }
 }

@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 @MainActor final class NexusStore: ObservableObject {
     @Published var config = NexusConfig()

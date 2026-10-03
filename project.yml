@@ -8,11 +8,10 @@ targets:
     type: application
     platform: iOS
     sources:
-      - path: .
-        excludes:
-          - README.md
-          - codemagic.yaml
-          - .github
+      - path: NexusMobileApp.swift
+      - path: ContentView.swift
+      - path: Models.swift
+      - path: NexusAPI.swift
     info:
       path: Info.plist
       properties:

@@ -1,0 +1,26 @@
+workflows:
+  ios-release:
+    name: NEXUS Mobile iOS release
+    environment:
+      xcode: latest
+      groups:
+        - app_store_connect
+      vars:
+        BUNDLE_ID: com.hrushi.nexusmobile
+    integrations:
+      app_store_connect: nexus_app_store
+    scripts:
+      - name: Install XcodeGen
+        script: brew install xcodegen
+      - name: Generate Xcode project
+        script: xcodegen generate
+      - name: Resolve Swift packages
+        script: xcodebuild -resolvePackageDependencies -project NexusMobile.xcodeproj -scheme NexusMobile
+      - name: Build archive
+        script: xcodebuild -project NexusMobile.xcodeproj -scheme NexusMobile -sdk iphoneos -configuration Release -archivePath build/NexusMobile.xcarchive archive CODE_SIGN_STYLE=Automatic PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID"
+    artifacts:
+      - build/NexusMobile.xcarchive
+    publishing:
+      email:
+        recipients:
+          - "$CM_BUILD_OWNER_EMAIL"

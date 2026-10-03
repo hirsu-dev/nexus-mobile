@@ -136,7 +136,19 @@ private struct StatusCard: View {
 
 struct SettingsView: View {
     @EnvironmentObject var store: NexusStore
-    var body: some View { Form { Section("Connections") { TextField("NEXUS URL", text: $store.config.baseURL); TextField("Pi-hole URL", text: $store.config.piHoleURL); TextField("Jellyfin URL", text: $store.config.jellyfinURL) } Section { Text("Use Tailscale hostnames or tailnet IPs when away from home Wi‑Fi.").font(.footnote) } }.navigationTitle("Settings") }
+    var body: some View {
+        Form {
+            Section("Connections") {
+                TextField("NEXUS URL", text: $store.config.baseURL)
+                TextField("Pi-hole URL", text: $store.config.piHoleURL)
+                TextField("Jellyfin URL", text: $store.config.jellyfinURL)
+            }
+            Section {
+                Text("Use Tailscale hostnames or tailnet IPs when away from home Wi‑Fi.").font(.footnote)
+            }
+        }
+        .navigationTitle("Settings")
+    }
 }
 
 

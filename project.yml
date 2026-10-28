@@ -26,6 +26,6 @@ targets:
         UILaunchScreen: {}
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.hrushi.nexusmobile
+        PRODUCT_BUNDLE_IDENTIFIER: com.hirsu.nexusmobile
         SWIFT_VERSION: 5.0
         DEVELOPMENT_TEAM: ""

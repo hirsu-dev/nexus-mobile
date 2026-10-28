@@ -6,7 +6,7 @@ workflows:
       groups:
         - app_store_connect
       vars:
-        BUNDLE_ID: com.hrushi.nexusmobile
+        BUNDLE_ID: com.hirsu.nexusmobile
     integrations:
       app_store_connect: nexus_app_store
     scripts:
